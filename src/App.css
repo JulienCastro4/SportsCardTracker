@@ -1,0 +1,454 @@
+/* Global styles */
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--app-medium-gray);
+  padding-top: 70px; /* Correspond à la hauteur de la navbar */
+}
+
+/* Pour éviter les problèmes avec le conteneur principal */
+#root, .App {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 90px - 60px); /* viewport - navbar - footer */
+  padding: 1.5rem 0;
+}
+
+.container {
+  max-width: 100%;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.7;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Home page styling */
+.jumbotron {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
+.jumbotron h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.jumbotron p.lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #6c757d;
+}
+
+/* Card styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: var(--app-dark-gray);
+  color: white;
+  border-bottom: none;
+  font-weight: 500;
+}
+
+.card-header h5, .card-header .h5 {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+/* Button styling */
+.btn {
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--app-dark-gray);
+  border-color: var(--app-dark-gray);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #212529;
+  border-color: #212529;
+}
+
+.btn-outline-primary {
+  color: var(--app-dark-gray);
+  border-color: var(--app-dark-gray);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background-color: var(--app-dark-gray);
+  border-color: var(--app-dark-gray);
+  color: white;
+}
+
+.btn-warning {
+  background-color: var(--app-yellow);
+  border-color: var(--app-yellow);
+  color: #212529;
+}
+
+.btn-outline-warning {
+  color: var(--app-yellow);
+  border-color: var(--app-yellow);
+}
+
+.btn-outline-warning:hover, .btn-outline-warning:focus {
+  background-color: var(--app-yellow);
+  border-color: var(--app-yellow);
+  color: #212529;
+}
+
+/* Form styling */
+.form-control {
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+  border-color: var(--app-yellow);
+  box-shadow: 0 0 0 0.25rem var(--app-yellow-subtle);
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Badge styling */
+.badge {
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.badge.bg-warning {
+  background-color: var(--app-yellow) !important;
+  color: #212529;
+}
+
+.badge.bg-secondary {
+  background-color: var(--app-medium-gray) !important;
+}
+
+.badge.bg-dark {
+  background-color: var(--app-dark-gray) !important;
+}
+
+/* Alert styling */
+.alert {
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.alert-warning {
+  background-color: var(--app-yellow-subtle);
+  border-color: var(--app-yellow);
+  color: #664d03;
+}
+
+/* Home page feature cards */
+.feature-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card .card-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card .card-text {
+  flex: 1;
+}
+
+/* Sports card item styling */
+.sports-card-item {
+  height: 100%;
+}
+
+.sports-card-item .card-img-top {
+  height: 200px;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+/* Auth test page */
+.auth-test-container pre {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    padding-top: 100px;
+  }
+  
+  .jumbotron {
+    padding: 2rem;
+  }
+  
+  .jumbotron h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Background for the home page */
+.bg-light {
+  background-color: #fff !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer styling */
+footer {
+  background-color: var(--app-dark-gray);
+  color: white;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  min-height: 250px;
+  position: relative;
+  z-index: 1000;
+}
+
+footer .footer-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+footer .footer-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+footer .footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+footer .footer-links a:hover {
+  color: #fff;
+}
+
+footer .footer-social a {
+  transition: opacity 0.2s ease;
+}
+
+footer .footer-social a:hover {
+  opacity: 0.8;
+}
+
+/* Styles personnalisés pour le thème jaune et gris */
+
+:root {
+  --app-dark-gray: #343a40;
+  --app-medium-gray: #495057;
+  --app-light-gray: #f8f9fa;
+  --app-yellow: #ffc107;
+  --app-yellow-subtle: rgba(255, 193, 7, 0.10);
+  --app-success: #198754;
+  --app-danger: #dc3545;
+}
+
+/* Styles pour les sections d'analyse */
+.analysis-card .card-header {
+  padding: 0.75rem 1.25rem;
+}
+
+.analysis-card.primary .card-header {
+  background-color: var(--app-medium-gray);
+}
+
+.analysis-card.secondary .card-header {
+  background-color: var(--app-medium-gray);
+}
+
+.analysis-card.accent .card-header {
+  background-color: var(--app-yellow);
+  color: #212529;
+}
+
+/* Styles pour les tableaux */
+.table-hover tbody tr:hover {
+  background-color: var(--app-yellow-subtle);
+}
+
+.table thead.table-light th {
+  background-color: var(--app-light-gray);
+  color: var(--app-medium-gray);
+  font-weight: 600;
+}
+
+/* Background subtil pour les cartes de statistiques positives */
+.bg-warning-subtle {
+  background-color: var(--app-yellow-subtle) !important;
+}
+
+/* Adoucissement des transitions */
+.card, 
+.btn, 
+.nav-link, 
+.table-hover tbody tr {
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Animation douce pour les survols */
+.card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Card details */
+.card-image-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Modals */
+.modal-header {
+  background-color: var(--app-dark-gray);
+  color: white;
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--app-light-gray);
+}
+
+/* Transition animations */
+.fade-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Multi-select styling */
+.multi-select-container {
+  display: flex;
+  align-items: center;
+}
+
+.multi-select-toggle {
+  position: relative;
+  min-width: 180px;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.multi-select-toggle .form-check-input {
+  height: 20px;
+  width: 40px;
+}
+
+.multi-select-toggle .form-check-label {
+  padding-left: 10px;
+  white-space: nowrap;
+}

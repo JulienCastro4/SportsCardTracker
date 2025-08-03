@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: my-card-collection-api
+    runtime: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: my-card-collection-db
+          property: connectionString
+      - key: AUTH0_AUDIENCE
+        value: https://api.mycardcollection.com
+      - key: AUTH0_ISSUER
+        value: https://votre-tenant.auth0.com/
+
+  - type: web
+    name: my-card-collection-frontend
+    runtime: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://my-card-collection-api.onrender.com
+      - key: VITE_AUTH0_DOMAIN
+        value: votre-tenant.auth0.com
+      - key: VITE_AUTH0_CLIENT_ID
+        value: votre-client-id
+      - key: VITE_AUTH0_AUDIENCE
+        value: https://api.mycardcollection.com
+
+databases:
+  - name: my-card-collection-db
+    databaseName: mycardcollectiondb
+    user: mycardcollectiondb_user
+    plan: free # ou choisissez un plan payant si nécessaire 

@@ -1,0 +1,64 @@
+/* Styles pour les graphiques */
+canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Styles pour les cartes de statistiques */
+.analysis-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.analysis-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Améliorer l'apparence des tableaux */
+.table-responsive {
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.table thead th {
+  font-weight: 600;
+  border-top: none;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Améliorer l'apparence des en-têtes */
+.card-header {
+  border-bottom: none;
+  padding: 0.75rem 1.25rem;
+}
+
+.bg-warning-subtle {
+  background-color: rgba(255, 193, 7, 0.18);
+}
+
+/* Styles pour les metriques */
+.metrics-card .card-body {
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+/* Afficher les nombres en haute qualité */
+h3, .h3 {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+
+/* Améliorations pour l'impression */
+@media print {
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+} 
